@@ -35,7 +35,8 @@ public class CategoriaResource {
 	@ResponseStatus(HttpStatus.CREATED)
 	public void criar(@RequestBody Categoria categoria, HttpServletResponse response) {
 		Categoria categoriaSalva = categoriaRepository.save(categoria);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}").buildAndExpand(categoriaSalva.getCodigo()).tUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}").
+				buildAndExpand(categoriaSalva.getCodigo()).toUri();
 	}
 	
 
